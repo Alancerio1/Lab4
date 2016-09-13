@@ -5,7 +5,9 @@
  */
 package edu.wctc.all.calculator;
 
+import edu.wctc.all.model.CircleModel;
 import edu.wctc.all.model.RectangleModel;
+import edu.wctc.all.model.TriangleModel;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -37,23 +39,22 @@ public class CalController extends HttpServlet {
 
         String length = request.getParameter("length");
         String width = request.getParameter("width");
-        
+
         RectangleModel recModel = new RectangleModel();
         String message = recModel.getCalculatedArea(length, width);
-        
-        request.setAttribute("message", message);
-        
-        
-        
-        
-        String radius = request.getParameter("radius");
 
+        request.setAttribute("message", message);
+
+        CircleModel cirModel = new CircleModel();
+        String radius = request.getParameter("radius");
+        String CirMsg = cirModel.CalculateRadius(radius);
+        request.setAttribute("CirMsg", CirMsg);
+
+        TriangleModel triModel = new TriangleModel();
         String opposite = request.getParameter("opposite");
         String adjacent = request.getParameter("adjacent");
 
-       
-       
-        request.setAttribute("radius", radius);
+        String TriMsg = triModel.CalculateHypotenuse("hypotenuse");
 
         request.setAttribute("opposite", opposite);
         request.setAttribute("adjacent", adjacent);
