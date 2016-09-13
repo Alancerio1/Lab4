@@ -21,11 +21,11 @@ public class RectangleModel {
         return length + width;
     }
     
-    public String CalculateArea(){
+    public final String CalculateArea(){
            area = (length * width) + "";
            return area;
     }
-    public String getCalculatedArea(String length,String width){
+    public final String getCalculatedArea(String length,String width){
         CalculateArea();
         return "the width is " + " " + width + " and the length is " + length + " making the area " + area ;
     }
