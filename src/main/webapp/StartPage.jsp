@@ -8,6 +8,11 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <style>
+            body{
+                background-color:blue;
+            }
+        </style>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Start page</title>
     </head>
@@ -40,6 +45,10 @@
             <input type="submit" name="radius" value="submit">
 
         </form>
+         <%
+            Object responseCircle = request.getAttribute("CirMsg");
+            out.println(responseCircle);
+        %>
         <br>
         <br>
         <img src ="images\triangle.jpg">
@@ -52,6 +61,10 @@
             <input type="submit" name="hypotenuse" value="submit">
 
         </form>
+          <%
+            Object responseTriangle = request.getAttribute("TriMsg");
+            out.println(responseTriangle);
+        %>
     </center>
     </body>
 </html>
