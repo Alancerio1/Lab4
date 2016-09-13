@@ -14,14 +14,9 @@ public class RectangleModel {
     private double width;
     private String area;
 
-    public final String getRectangleModel(String length, String  width) {
-        this.length = Double.parseDouble(length);
-        this.width = Double.parseDouble(width);
+  
     
-        return length + width;
-    }
-    
-    public final String CalculateArea(){
+    public final String calculateArea(){
            area = (length * width) + "";
            return area;
     }
