@@ -21,7 +21,7 @@ public class RectangleModel {
            return area;
     }
     public final String getCalculatedArea(String length,String width){
-        CalculateArea();
+        calculateArea();
         return "the width is " + " " + width + " and the length is " + length + " making the area " + area ;
     }
 }
