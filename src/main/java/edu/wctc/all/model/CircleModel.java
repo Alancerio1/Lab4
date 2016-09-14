@@ -10,21 +10,13 @@ package edu.wctc.all.model;
  * @author alancerio18
  */
 public class CircleModel {
-    private double radius;
     
 
-    public final String getCircleModel(String radius) {
-        this.radius = Double.parseDouble(radius);
+  
+     public final Double getCalculatedRadius(String Radius){
+        double radius = Double.parseDouble(Radius);
+        double radResults = radius*Math.PI;
+        return radResults;
         
-        return radius;
-    }
-    
-    public Double CalculateRadius(){
-           radius = (Math.PI * Math.pow(radius, 2));
-           return radius;
-    }
-    public String getCalculatedArea(String radius){
-        CalculateRadius();
-        return "the radius of the circle is " + radius ;
     }
 }

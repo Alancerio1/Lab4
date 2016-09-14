@@ -5,11 +5,10 @@
  */
 package edu.wctc.all.calculator;
 
-import edu.wctc.all.model.CircleModel;
-import edu.wctc.all.model.RectangleModel;
-import edu.wctc.all.model.TriangleModel;
+import edu.wctc.all.model.ListService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,8 +20,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author alancerio18
  */
-@WebServlet(name = "CalController", urlPatterns = {"/CalControl"})
-public class CalController extends HttpServlet {
+@WebServlet(name = "ListController", urlPatterns = {"/ListController"})
+public class ListController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,33 +35,13 @@ public class CalController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
-        String action = request.getParameter("action");
-        double results = 0;
-        RectangleModel recModel = new RectangleModel();
-        CircleModel cirModel = new CircleModel();
-        TriangleModel triModel = new TriangleModel();
-
-        if (action.equals("rectangle")) {
-            String length = request.getParameter("length");
-            String width = request.getParameter("width");
-            results = recModel.getCalculatedArea(length, width);
-            request.setAttribute("area", results);
-            
-        } else if (action.equals("circle")) {
-            String radius = request.getParameter("radius");
-            results = cirModel.getCalculatedRadius(radius);
-            request.setAttribute("radius", cirModel);
-            
-        } else if (action.equals("triangle")) {
-            String opposite = request.getParameter("opposite");
-            String adjacent = request.getParameter("adjacent");
-            results = triModel.getHypotenouse(opposite, adjacent);
-            request.setAttribute("hypotenuse", results);
-        }
-
-        RequestDispatcher view
-                = request.getRequestDispatcher("/StartPage.jsp");
+     
+        ListService service = new ListService();
+        List<String> shoppingList = service.getShoppingList();
+        request.setAttribute("shoppingList", shoppingList);
+        
+         RequestDispatcher view
+                = request.getRequestDispatcher("/listTest.jsp");
         view.forward(request, response);
     }
 

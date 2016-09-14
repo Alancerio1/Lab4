@@ -13,13 +13,7 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-
-        <%
-            Object responseRectangle = request.getAttribute("message");
-            out.println(responseRectangle);
-
-      
-
-        %>
+        ${responseRectangle}
+       
     </body>
 </html>

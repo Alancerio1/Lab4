@@ -10,23 +10,15 @@ package edu.wctc.all.model;
  * @author alancerio18
  */
 public class TriangleModel {
-    private double opposite;
-    private double adjacent;
-    private String hypotenuse;
 
-    public final String getRectangleModel(String opposite, String  adjacent) {
-        this.opposite = Double.parseDouble(opposite);
-        this.adjacent = Double.parseDouble(adjacent);
-    
-        return opposite + adjacent;
-    }
-    
-    public String CalculateHypotenuse(){
-           hypotenuse = Math.sqrt(Math.pow(adjacent,2) + Math.pow(opposite,2)) + "";
-           return hypotenuse;
-    }
-    public String getCalculatedArea(String length,String width){
-        CalculateHypotenuse();
-        return "the hypotenuse of the triangle is " + hypotenuse ;
+    public final Double getHypotenouse(String opposite, String adjacent) {
+        double opp = Double.parseDouble(opposite);
+        double adj = Double.parseDouble(adjacent);
+
+        double oppSquared = Math.sqrt(opp);
+        double adjSquared = Math.sqrt(adj);
+
+        double hypotenuse = Math.sqrt(oppSquared + adjSquared);
+        return hypotenuse;
     }
 }
